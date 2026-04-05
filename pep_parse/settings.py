@@ -1,9 +1,12 @@
 from pathlib import Path
 
+from pep_parse.constants import SPIDER_MODULES
+
+
 BOT_NAME = 'pep_parse'
 
-SPIDER_MODULES = ['pep_parse.spiders']
-NEWSPIDER_MODULE = 'pep_parse.spiders'
+SPIDER_MODULES = [SPIDER_MODULES]
+NEWSPIDER_MODULE = SPIDER_MODULES
 
 
 ROBOTSTXT_OBEY = True

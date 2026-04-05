@@ -22,6 +22,10 @@ class PepParsePipeline:
         with open(file_dir, mode="w", newline="", encoding="utf-8") as f:
             writer = csv.DictWriter(f, fieldnames=["Статус", "Количество"])
             writer.writeheader()
-            for status, count in self.counter.items():
-                writer.writerow({"Статус": status, "Количество": count})
-            writer.writerow({"Статус": "Total", "Количество": total})
+            rows = [
+                {"Статус": status, "Количество": count}
+                for status, count in self.counter.items()
+            ]
+            rows.append({"Статус": "Total", "Количество": total})
+
+            writer.writerows(rows)
